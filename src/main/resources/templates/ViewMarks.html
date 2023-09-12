@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Marks</title>
+</head>
+<body>
+<div>
+    <h1>View Student's OOP Marks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>CA</th>
+                <th>Practical</th>
+                <th>Theory</th>
+                <th>Final</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="marksEntityObj :${marks}">
+            <td th:text="${marksEntityObj.student_id}"></td>
+            <td th:text="${marksEntityObj.student_name}"></td>
+            <td th:text="${marksEntityObj.ca}"></td>
+            <td th:text="${marksEntityObj.practical}"></td>
+            <td th:text="${marksEntityObj.theory}"></td>
+            <td th:text="${marksEntityObj.ca *0.2 + marksEntityObj.practical *0.2 + marksEntityObj.theory * 0.6}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
